@@ -32,7 +32,7 @@ class App
 					echo " method  not exist"."<br>";
 				}
 			}
-			$this->params = $url ? array_values($url) :[];
+			$this->params = $url ? array_values($url) : [];
 			call_user_func_array([$this->controller,$this->method],$this->params);//param = [];
 
 		}

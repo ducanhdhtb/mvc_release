@@ -1,5 +1,6 @@
 <?php 
 use app\core\Response;
+use models\Model;
 class Home extends Controller
 	{
 		
@@ -10,13 +11,15 @@ class Home extends Controller
 
 		public function Index()
 		{
-			//echo "This is function index In controller home";
-			return Response::view('index');
+			$x = $this->model('user');
+			$data['ten'] = 'Anh';
+			
+			$this -> view('home/example',$data);
 		}
 
-		public function Create($var1 ,$var2)
+		public function Create()
 		{
-			return Response::View('product');
+			
 		}
 
 		public function edit()

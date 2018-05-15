@@ -2,18 +2,14 @@
 /**
 * 
 */
-class User extends AnotherClass
+class User 
 {
 	
-	function __construct(argument)
-	{
-		# code...
-	}
 
-	function test()
+	public function test()
 	{
 		return 'model test';
 	}
 }
 
- ?>
+?>
