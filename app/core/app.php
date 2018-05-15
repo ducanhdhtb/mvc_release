@@ -9,14 +9,15 @@ class App
 	protected $params = [];
 	function __construct()
 	{
+		include_once('view.php');
 		$url = $this -> parseUrl();
 
 		if(file_exists('../app/controllers/'.$url[0].'.php'))
-			{
-				$this -> controller = $url[0];
-				require_once('../app/controllers/'.$url[0].'.php');
-				unset($url[0]);
-			}
+		{
+			$this -> controller = $url[0];
+			require_once('../app/controllers/'.$url[0].'.php');
+			unset($url[0]);
+		}
 
 			$this->controller = new $this->controller;// controller is an object
 
@@ -31,20 +32,20 @@ class App
 					echo " method  not exist"."<br>";
 				}
 			}
-			 $this->params = $url ? array_values($url) :[];
+			$this->params = $url ? array_values($url) :[];
 			call_user_func_array([$this->controller,$this->method],$this->params);//param = [];
 
-	}
+		}
 
-	public function parseUrl()
-	{
-		if (isset($_GET['url']))
+		public function parseUrl()
 		{
-			$geturl = rtrim($_GET['url'],'');
-			return $url = explode('/',$geturl);
-			
+			if (isset($_GET['url']))
+			{
+				$geturl = rtrim($_GET['url'],'');
+				return $url = explode('/',$geturl);
+				
+			}
 		}
 	}
-}
 
- ?>
+	?>

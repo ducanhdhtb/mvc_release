@@ -1,4 +1,5 @@
 <?php 
+use app\core\Response;
 class Home extends Controller
 	{
 		
@@ -7,14 +8,15 @@ class Home extends Controller
 			#code
 		}
 
-		public function index()
+		public function Index()
 		{
-			echo "This is function index In controller home";
+			//echo "This is function index In controller home";
+			return Response::view('index');
 		}
 
-		public function create()
+		public function Create($var1 ,$var2)
 		{
-			echo "This is function create In controller home";
+			return Response::View('product');
 		}
 
 		public function edit()
